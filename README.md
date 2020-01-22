@@ -1,1 +1,3 @@
-# terraform-rs-vmc
+# Example : Create SDDC
+
+This example provisions a SDDC.
