@@ -7,7 +7,7 @@ provider "vmc" {
 }
 
 data "vmc_org" "my_org" {
-  id = "jk1bzd9s"
+  id = "0f599344-e490-43df-8099-d5e9987be36c"
 }
 
 data "vmc_connected_accounts" "my_accounts" {
@@ -23,7 +23,7 @@ data "vmc_customer_subnets" "my_subnets" {
 resource "vmc_sddc" "sddc_1" {
   org_id = data.vmc_org.my_org.id
 
-  sddc_name           = "vmc"
+  sddc_name           = "rstest"
   vpc_cidr            = var.vpc_cidr
   num_host            = 3
   provider_type       = "AWS"
@@ -44,11 +44,4 @@ resource "vmc_sddc" "sddc_1" {
     update = "300m"
     delete = "180m"
   }
-}
-
-resource "vmc_publicips" "IP1" {
-  org_id     = data.vmc_org.my_org.id
-  sddc_id    = vmc_sddc.sddc_1.id
-  private_ip = var.private_ip
-  name       = "vm1"
 }
