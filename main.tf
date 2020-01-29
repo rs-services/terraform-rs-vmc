@@ -25,8 +25,10 @@ resource "vmc_sddc" "sddc_1" {
 
   sddc_name           = "rstest"
   vpc_cidr            = var.vpc_cidr
-  num_host            = 3
+  num_host            = 1
+  sddc_type           = "1NODE"
   provider_type       = "AWS"
+
   region              = data.vmc_customer_subnets.my_subnets.region
   vxlan_subnet        = var.vxlan_subnet
   delay_account_link  = false
